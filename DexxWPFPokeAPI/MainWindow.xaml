@@ -1,0 +1,51 @@
+﻿<Window x:Class="DexxWPFPokeAPI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DexxWPFPokeAPI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+     
+    <ScrollViewer>
+
+
+        <Grid x:Name="grid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Menu Grid.Row="0" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                <MenuItem x:Name="backMenue" Header="_Zurueck" Click="backMenue_Click" />
+                
+                <MenuItem x:Name="forward" Header="_Vor" Click="forward_Click"  />
+            </Menu>
+            <ToolBar Grid.Row="0" x:Name="toolbarAdresse" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <TextBox x:Name="txt_search" Width="200" ToolTip="Suche nach einem pokemon" TextChanged="txt_search_TextChanged"  >
+                </TextBox>
+                <Button x:Name="buttonLos" ToolTip="Los geht's" Height="32" Click="buttonLos_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="pics\icons848.png"/>
+                        <TextBlock Margin="5,5,0,0" Text="let's go"/>
+                    </StackPanel>
+                </Button>
+            </ToolBar>
+            <Frame Grid.Row="0" x:Name="frame" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Frame.Content>
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Content="Wie viele Pokemons sollen geladen werden(1 - 898) ?" FontSize="25" Background="White"/>
+                        <TextBox Grid.Row="1" x:Name="txt_Box" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" FontSize="25" KeyDown="Txt_Box_KeyDown"   />
+                    </Grid>
+
+                </Frame.Content>
+            </Frame>
+
+
+            <Image Height="200" Width="200" x:Name="imageXML" />
+        </Grid>
+    </ScrollViewer>
+</Window>
